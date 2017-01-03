@@ -121,7 +121,7 @@ a.simpleCart_empty {
     vertical-align: middle;
     margin-right: 3px;
 }
-.banner-top {
+.menu {
 	padding-top: 25px;
     background-color: #f8f8f8;
 }
@@ -499,7 +499,8 @@ h3.head.text-center {
     font-size: 35px;
     color: #816263;
     font-weight: 500;
-	    padding: 0;
+	padding: 0;
+	margin-bottom: 30px;
 }
 .products-grid {
     padding: 30px 0;
@@ -884,7 +885,7 @@ ul.tags_links li a:hover{
 	float:right;
 	background:rgba(245, 243, 243, 0.27);
 	min-height:800px;
-	padding:2em;
+	padding: 0 20px;
 }
 ul.product-top-list{
 	padding:0;
@@ -1049,21 +1050,12 @@ h3.new-models {
 	font-size: 0.85em;
 	font-weight: bold;
 }
-p.title {
-	color: #000;
-	font-size: 0.95em;
-	font-weight: bold;
-}
+
 .cart-left {
 	float: left;
 	margin-right: 2.6%;
 }
-p.title {
-	color: #000;
-	font-size: 0.95em;
-	font-weight: 700;
-	margin:0;
-}
+
 .pricey {
 	float: right;
 	font-weight: bold;
@@ -1345,6 +1337,7 @@ ul.product-qty {
 	margin-top: 2em;
 }
 .btn_form form input[type="submit"]:hover{
+	
 }
 .abt-ft{
 	margin-top:2em;
@@ -1365,11 +1358,7 @@ h3.new-models {
 	top: 12em;
 	left: 6.2em;
 }
-p.title {
-	color: #000;
-	font-size: 0.95em;
-	font-weight: bold;
-}
+
 .cart-left {
 	float: left;
 	margin-right: 2.6%;
@@ -2255,6 +2244,7 @@ p.right {
 	}
 	h3.head.text-center {
 		font-size: 30px;
+		margin-bottom: 30px;
 	}
 	.product {
 		margin-top: 40px;
@@ -2727,7 +2717,7 @@ p.right {
 		margin: 0 0 12px 0;
 		font-size: 20px;
 	}
-	.banner-top {
+	.menu {
 		padding-top: 20px;
 	}
 	.banner {
@@ -2865,7 +2855,7 @@ p.right {
 		margin-right: 0px;
 		margin-bottom: 8px;
 	}
-	.banner-top {
+	.menu {
 		padding-top: 15px;
 	}
 	.banner-bottom-left h2 {
@@ -3081,4 +3071,70 @@ p.right {
 .multi-item-carousel .carouse-control.left,
 .multi-item-carousel .carouse-control.right {
   background-image: none;
+}
+
+
+.single-shop-product h2 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+.product-option-shop {
+    margin-top: 15px;
+}
+
+.single-shop-product {
+	margin-bottom: 50px
+}
+
+.add-to-cart-button {
+	color: #fff;
+    background: #816263;
+    padding: 8px 10px;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 13px;
+}
+
+.add-to-cart-button:hover {
+	color: #fff;
+    background: #000;
+    text-decoration: none;
+}
+.product-option-shop {
+	text-align: center;
+}
+
+.product-info {
+	text-align: center;
+	margin: 15px 0px;
+}
+
+.product-info a {
+	font-size: 15px;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+.product-price {
+	margin: 5px 0px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #999;
+}
+
+.item-price {
+	color: #900;
+}
+
+p.brief {
+	height: 60px;
+	max-width: 300px;
+    margin: 5px auto;
+    color: #999;
+	text-align: center;
+	overflow: hidden;
+}
+
+a:hover {
+	cursor: pointer;
 }

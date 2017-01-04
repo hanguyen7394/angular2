@@ -703,7 +703,7 @@ a.like_name {
     font-weight: 300;
     font-size: 15px;
     padding: 10px 10px;
-    border: 1px solid #E4E4E4;
+    border: 1px solid #AAA;
     outline: none;
     font-family: 'Lato-Regular';
     text-align: left;
@@ -1484,14 +1484,14 @@ li.home a {
 	text-transform: uppercase;
 }
 .login-right input[type="text"] {
-	border: 1px solid #EEE;
+	border: 1px solid #AAA;
 	outline-color:#CACACA;
 	width: 96%;
 	font-size:13px;
 	padding: 8px;
 }
 .login-right input[type="password"] {
-	border: 1px solid #EEE;
+	border: 1px solid #AAA;
 	outline-color:#CACACA;
 	width: 96%;
 	font-size:13px;
@@ -1662,7 +1662,7 @@ ul.women_pagenation li a:hover{
 	padding: 8px;
 	font-size: 14px;
 	font-weight: 400;
-	border: 1px solid #e6e6e6;
+	border: 1px solid #AAA;
 	outline: none;
 	color: #000;
 }
@@ -1743,7 +1743,7 @@ p.click a:hover{
 	font-size:14px;
 	padding: 12px 10px;
 	outline: none;
-	border: 1px solid #e8e8e8;
+	border: 1px solid #AAA;
 }
 .contact-right textarea{
 	width: 100%;
@@ -1753,7 +1753,7 @@ p.click a:hover{
 	height: 185px;
 	padding: 12px;
 	outline: none;
-	border: 1px solid #e8e8e8;
+	border: 1px solid #AAA;
 }
 .contact-form input[type=submit] {
 	border:none;

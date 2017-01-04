@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
                 
         // Instantiate the Bootstrap carousel
-        $('.multi-item-carousel').carousel({
+        $('.multi-item-carousel .carousel-inner').carousel({
             interval: false
         });
 
@@ -23,7 +23,20 @@ export class HomeComponent implements OnInit {
             if (!next.length) {
                 next = $(this).siblings(':first');
             }
-            next.children(':first-child').clone().appendTo($(this));
+
+            var firstChild = next.children(':first');
+            var link = firstChild.find('> a');
+
+            console.log('link', link);
+
+            var cloneElm  = firstChild.clone();
+            var cloneAElm = cloneElm.find('> a');
+
+            cloneAElm.attr('ng-reflect-router-link', link.attr('routerlink'));
+            cloneAElm.attr('ng-reflect-href', link.attr('routerlink'));
+            cloneAElm.attr('href', link.attr('routerlink'));
+
+            cloneElm.appendTo($(this));
 
             if (next.next().length > 0) {
                 next.next().children(':first-child').clone().appendTo($(this));

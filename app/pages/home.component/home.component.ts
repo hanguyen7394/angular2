@@ -17,5 +17,9 @@ export class HomeComponent implements OnInit {
             autoplay: true,
             autoplaySpeed: 2000
         });
+        
+        $(".simpleCart_shelfItem").click(function() {
+            document.body.scrollTop = 0;
+        });
     }
 }

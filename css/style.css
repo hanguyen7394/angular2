@@ -1365,9 +1365,9 @@ h3.new-models {
 }
 p.title {
 	color: #000;
-	font-size: 0.95em;
-	font-weight: 700;
-	margin:0;
+    font-size: 0.95em;
+    font-weight: 700;
+    margin: 10px;
 }
 .pricey {
 	float: right;
@@ -3083,7 +3083,7 @@ p.right {
 }
 
 .single-shop-product {
-	margin-bottom: 50px
+	margin-bottom: 30px
 }
 
 .add-to-cart-button {
@@ -3122,12 +3122,12 @@ p.right {
 	color: #999;
 }
 
-.item-price {
+.item_price {
 	color: #900;
 }
 
 p.brief {
-	height: 60px;
+	height: 40px;
 	max-width: 300px;
     margin: 5px auto;
     color: #999;

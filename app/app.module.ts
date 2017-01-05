@@ -1,8 +1,10 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { routing, appRoutingProviders }  from './app.routing';
+import { AppComponent }   from './app.component';
+import { HttpModule }    from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
-import { AppComponent }  from './app.component';
 import { HomeComponent } from './pages/home.component/home.component';
 import { ProductsComponent } from './pages/products.component/products.component';
 import { SingleComponent } from './pages/single.component/single.component';
@@ -27,13 +29,24 @@ import { ModContactComponent } from './modules/mod_contact.component/mod_contact
 import { ModLoginComponent } from './modules/mod_login.component/mod_login.component';
 import { ModCreateComponent } from './modules/mod_create.component/mod_create.component';
 
+import { ProductService } from './services/service_product/service_product';
+import { UserService } from './services/service_user/service_user';
+import { PartnerService } from './services/service_partner/service_partner';
+import { OrderService } from './services/service_order/service_order';
+import { OrderDetailService } from './services/service_order_detail/service_order_detail';
+import { CustomerService } from './services/service_customer/service_customer';
+import { CommentService } from './services/service_comment/service_comment';
+import { CateProductService } from './services/service_cate_product/service_cate_product';
+
 @NgModule({
-  imports:      [ BrowserModule, routing ],
+  imports:      [ BrowserModule, routing, HttpModule, FormsModule ],
   declarations: [ AppComponent, HomeComponent, WidFooterComponent, WidHeaderComponent, ModMenuComponent,
                   ModBannerComponent, ModOnlineStripComponent, ModLatestProductsComponent, ModSaleProductsComponent,
                   ProductsComponent, ModProductsComponent, ModSidebarComponent, SingleComponent,
                   ModProductDetailComponent, ModReviewTabsComponent, ModRelatedProductsComponent, ContactComponent,
                   ModContactComponent, LoginComponent, ModLoginComponent, CreateComponent, ModCreateComponent ],
+  providers: [ ProductService, UserService, PartnerService, OrderService, OrderDetailService,
+              CustomerService, CommentService, CateProductService ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

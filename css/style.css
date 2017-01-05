@@ -3142,3 +3142,7 @@ a:hover {
 .slick-prev:before, .slick-next:before {
     text-shadow: 0 5px 10px rgba(0, 0, 0, 1);
 }
+
+.slick-prev:before, .slick-next:before {
+	font-size: 30px;
+}

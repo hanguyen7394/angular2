@@ -3138,3 +3138,7 @@ p.brief {
 a:hover {
 	cursor: pointer;
 }
+
+.slick-prev:before, .slick-next:before {
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 1);
+}

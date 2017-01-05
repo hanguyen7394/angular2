@@ -8,5 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ModLatestProductsComponent implements OnInit {
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+         
+    }
 }

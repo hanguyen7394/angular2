@@ -10,16 +10,6 @@ export class HomeComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        $('.multiple-items').slick({
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            autoplay: true,
-            autoplaySpeed: 2000
-        });
         
-        $(".simpleCart_shelfItem").click(function() {
-            document.body.scrollTop = 0;
-        });
     }
 }

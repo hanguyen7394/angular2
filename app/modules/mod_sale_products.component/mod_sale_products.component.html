@@ -1,29 +1,29 @@
 <div class="other-products">
-    <div class="container">
-        <h3 class="head text-center">Sale Products</h3>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="multiple-items">
-                    <div class="col-md-4" *ngFor="let item of list_product_display">
-                        <a routerLink="/single"><img src="{{item.img}}" class="img-responsive" alt="" /></a>
-                        <div class="product liked-product simpleCart_shelfItem">
-                            <a class="like_name" routerLink="/single">{{item.name}}</a>
-                            <p *ngIf="item.price_sale != 0">
-                                <a class="item_add">
-                                    <i></i>
-                                    <span class="item_price">{{item.price_sale | currency:'USD':true}}</span>
-                                    <span><del>{{item.price | currency:'USD':true}}</del></span>
-                                </a>
-                            </p>
-                            <p *ngIf="item.price_sale == 0">
-                                <a class="item_add">
-                                    <i></i> <span class="item_price">{{item.price | currency:'USD':true}}</span>
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<h3 class="head text-center">Sale Products</h3>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="multiple-items">
+					<div class="col-md-4" *ngFor="let item of list_product_display">
+						<a (click)="gotoDetail(item)"><img src="{{item.img}}" class="img-responsive" alt="" /></a>
+						<div class="product liked-product simpleCart_shelfItem">
+							<a class="like_name" (click)="gotoDetail(item)">{{item.name|uppercase}}</a>
+							<p *ngIf="item.price_sale != 0">
+								<a class="item_add">
+									<i></i>
+									<span class="item_price">{{item.price_sale | currency:'USD':true}}</span>
+									<span><del>{{item.price | currency:'USD':true}}</del></span>
+								</a>
+							</p>
+							<p *ngIf="item.price_sale == 0">
+								<a class="item_add">
+									<i></i> <span class="item_price">{{item.price | currency:'USD':true}}</span>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

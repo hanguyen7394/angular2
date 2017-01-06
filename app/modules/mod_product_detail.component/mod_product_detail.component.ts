@@ -1,18 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-declare var $: any;
+import { ActivatedRoute, Params} from '@angular/router';
+
+import { Product } from '../../model/product/product';
+import { ProductService } from '../../services/service_product/service_product';
+import 'rxjs/Rx';
 
 @Component({
-    moduleId: module.id,
-    selector: 'mod_product_detail',
-    templateUrl: 'mod_product_detail.component.html'
+	moduleId: module.id,
+	selector: 'mod_product_detail',
+	templateUrl: 'mod_product_detail.component.html'
 })
-export class ModProductDetailComponent implements OnInit {
-    constructor() { }
 
-    ngOnInit() {
-        $('.flexslider').flexslider({
-            animation: "slide",
-            controlNav: "thumbnails"
-        });
-    }
+export class ModProductDetailComponent implements OnInit {
+	
+	public product: Product;
+
+	constructor (private service_product: ProductService, private route: ActivatedRoute) {}
+
+	ngOnInit() {
+		this.route.params
+			.switchMap((params: Params) => this.service_product.getProductByIdApi(+params['id']))
+			.subscribe(
+				data => this.product = data.shift(), // put the data returned from the server in our variable
+				error => console.log("Lỗi xảy ra ở HTTP service"), // in case of failure show this message
+				() => console.log(this.product)//run this code in all cases
+			);
+	}
 }

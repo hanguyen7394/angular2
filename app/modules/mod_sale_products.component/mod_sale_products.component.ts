@@ -34,7 +34,7 @@ export class ModSaleProductsComponent implements OnInit {
                 document.body.scrollTop = 0;
             });
         }
-        setTimeout(carouselSale, 50);
+        setTimeout(carouselSale, 500);
     }
     gotoDetail(product: Product): void {
         let link = ['/single', product.id];

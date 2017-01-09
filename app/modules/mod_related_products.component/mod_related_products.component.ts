@@ -11,18 +11,13 @@ import { Location } from '@angular/common';
 })
 export class ModRelatedProductsComponent implements OnInit {
     list_product_display: Product[];
-    constructor(private service_product: ProductService, private router: Router, private route: ActivatedRoute) {
-        //cate_id = cate_id của sản phẩm tại trang single
-        // this.service_product.getListProductPromise().then(list => this.list_product_display
-        //     = list.filter(item => item.product_cate_id == 1).slice(0, 3));
-    }
+    constructor(private service_product: ProductService, private router: Router, private route: ActivatedRoute) {  }
     ngOnInit(): void {
          this.route.params.forEach((params: Params) => {
             let product_id = +params['id'];
             this.service_product.getRelatedProductByIdApi(product_id).subscribe(
-                data => this.list_product_display = data.slice(0, 3), // put the data returned from the server in our variable
-                error => console.log("Lỗi xảy ra ở HTTP service"), // in case of failure show this message
-                () => console.log(this.list_product_display)//run this code in all cases
+                data => this.list_product_display = data.sort((item1: any, item2: any) => item2.updated - item1.updated).slice(0, 3), // put the data returned from the server in our variable
+                error => console.log("Lỗi xảy ra ở HTTP service") // in case of failure show this message
             );
             
         });

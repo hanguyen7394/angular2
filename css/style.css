@@ -520,9 +520,6 @@ h3.head.text-center {
 .product:hover .mask{
 	display:block;
 }
-.products-grid img {
-	width:100%;
-}
 .products-grid  a {
 	display:block;
 	text-transform:uppercase;

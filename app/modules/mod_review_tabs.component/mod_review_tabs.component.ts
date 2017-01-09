@@ -27,6 +27,6 @@ export class ModReviewTabsComponent implements OnInit {
             alert( 'Button Clicked: Event was maintained' );
           } );
           fakewaffle.responsiveTabs( [ 'xs', 'sm' ] );
-      } )( jQuery );
+      } );
     }
 }

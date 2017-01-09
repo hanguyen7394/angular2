@@ -23,7 +23,7 @@ export class ModLatestProductsComponent implements OnInit {
 	ngOnInit(): void {
 
 		this.service_product.getListProductApi().subscribe(
-			data => this.list_product_display = data.sort((item1: any, item2: any) => item2.updated - item1.updated).slice(0, 6), // put the data returned from the server in our variable
+			data => this.list_product_display = data.sort((item1: any, item2: any) => item2.updated - item1.updated).slice(0, 9), // put the data returned from the server in our variable
 			error => console.log("Lỗi xảy ra ở HTTP service")
 		);
 

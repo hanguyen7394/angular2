@@ -32,6 +32,5 @@ export class ModLatestProductsComponent implements OnInit {
 	gotoDetail(product: Product): void {
 		let link = ['/single', product.id];
 		this.router.navigate(link);
-		console.log("ID:" + product.id);
 	}
 }

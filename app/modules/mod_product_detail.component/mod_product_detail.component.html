@@ -1,51 +1,64 @@
-<div class="row" *ngIf="product">
-	<div class="col-md-5 zoom-grid">
+
+    <div class="col-md-5 zoom-grid" *ngIf="product">
 		<img class="img-responsive" src="{{product.img}}" alt="" />
 	</div>
-	<div class="col-md-7 dress-info">
-		<div class="dress-name">
-			<h3>{{product.name | uppercase}}</h3>
-			<span *ngIf="product.price_sale != 0">
+    <div class="col-md-7 dress-info" *ngIf="product">
+        <div class="dress-name">
+            <h3>{{product.name | uppercase}}</h3>
+            <span *ngIf="product.price_sale != 0">
 				<ins class="item-price">{{product.price_sale | currency:'USD':true}}</ins>
 			    <del>{{product.price | currency:'USD':true}}</del>
 			</span>
 			<span *ngIf="product.price_sale == 0">
 				<ins class="item-price">{{product.price | currency:'USD':true}}</ins>
 			</span>
-			<div class="clearfix"></div>
-			<p>{{product.brief}}</p>
-			<p>{{product.detail}}</p>
-		</div>
-		<div class="span span1">
-			<p class="left">FABRIC ORIGIN</p>
-			<p class="right">Japan</p>
-			<div class="clearfix"></div>
-		</div>
-		<div class="span span2">
-			<p class="left">MADE IN</p>
-			<p class="right">China</p>
-			<div class="clearfix"></div>
-		</div>
-		<div class="span span3">
-			<p class="left">COLOR</p>
-			<p class="right">White</p>
-			<div class="clearfix"></div>
-		</div>
-		<div class="span span4">
-			<p class="left">SIZE</p>
-			<p class="right">
-				<span class="selection-box">
-					<select class="domains valid" name="domains">
-	          <option>M</option>
-	          <option>L</option>
-	          <option>XL</option>
-	          <option>FS</option>
-	          <option>S</option>
-	      	</select>
-      	</span>
-      </p>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-	<div class="clearfix"></div>
-</div>
+            <div class="clearfix"></div>
+            <p>{{product.brief}}</p>
+            <p>{{product.detail}}</p>
+        </div>
+        <div class="span span1">
+            <p class="left">FABRIC ORIGIN</p>
+            <p class="right">Japan</p>
+            <div class="clearfix"></div>
+        </div>
+        <div class="span span2">
+            <p class="left">MADE IN</p>
+            <p class="right">China</p>
+            <div class="clearfix"></div>
+        </div>
+        <div class="span span3">
+            <p class="left">COLOR</p>
+            <p class="right">White</p>
+            <div class="clearfix"></div>
+        </div>
+        <div class="span span4">
+            <p class="left">SIZE</p>
+            <p class="right"><span class="selection-box"><select class="domains valid" name="domains">
+										   <option>M</option>
+										   <option>L</option>
+										   <option>XL</option>
+										   <option>FS</option>
+										   <option>S</option>
+									   </select></span></p>
+            <div class="clearfix"></div>
+        </div>
+        <div class="purchase">
+            <a href="#">Purchase Now</a>
+            <div class="social-icons">
+                <ul>
+                    <li>
+                        <a class="facebook1" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="twitter1" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="googleplus1" href="#"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    
+    <div class="clearfix"></div>

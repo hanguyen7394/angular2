@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params} from '@angular/router';
 
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../model/product/product';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
 import { ProductService } from '../../services/service_product/service_product';
-import 'rxjs/Rx';
+
+declare var $: any;
 
 @Component({
 	moduleId: module.id,
@@ -12,18 +14,30 @@ import 'rxjs/Rx';
 })
 
 export class ModProductDetailComponent implements OnInit {
-	
-	public product: Product;
 
-	constructor (private service_product: ProductService, private route: ActivatedRoute) {}
+    constructor(
+        private service_product: ProductService,
+        private route: ActivatedRoute,
+        private location: Location
+    ) { }
 
-	ngOnInit() {
-		this.route.params
-			.switchMap((params: Params) => this.service_product.getProductByIdApi(+params['id']))
-			.subscribe(
-				data => this.product = data.shift(), // put the data returned from the server in our variable
-				error => console.log("Lỗi xảy ra ở HTTP service"), // in case of failure show this message
-				() => console.log(this.product)//run this code in all cases
-			);
-	}
+    @Input() product: Product;
+
+    ngOnInit() {
+        this.route.params.forEach((params: Params) => {
+            let id = +params['id'];
+            this.service_product.getProductByIdApi(id).subscribe(
+                data => this.product = data.shift(), // put the data returned from the server in our variable
+                error => console.log("Lỗi xảy ra ở HTTP service"), // in case of failure show this message
+                () => console.log(this.product)//run this code in all cases
+            );
+        });
+        function flexslider() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails"
+            });
+        }
+        setTimeout(flexslider, 500);
+    }
 }

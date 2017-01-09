@@ -14,33 +14,22 @@ declare var $: any;
 export class ModSaleProductsComponent implements OnInit {
 
 	list_product_display: Product[];
-
-	constructor(private service_product: ProductService, private router: Router) { }
-
-	ngOnInit(): void {
-		this.service_product.getListProductApi().subscribe(
-			data => this.list_product_display = data.filter((item: any) => item.price_sale != 0).slice(0, 6), // put the data returned from the server in our variable
-			error => console.log("Lỗi xảy ra ở HTTP service")
-		);
-
-
-		function carouselSale() {
-			$('.multiple-items').slick({
-				infinite: true,
-				slidesToShow: 3,
-				slidesToScroll: 3,
-				autoplay: true,
-				autoplaySpeed: 2000
-			});
-			$(".simpleCart_shelfItem").click(function () {
-				document.body.scrollTop = 0;
-			});
-		}
-		setTimeout(carouselSale, 50);
-	}
-	
-	gotoDetail(product: Product): void {
-		let link = ['/single', product.id];
-		this.router.navigate(link);
-	}
+        function carouselSale() {
+            $('.multiple-items').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                autoplay: true,
+                autoplaySpeed: 2000
+            });
+            $(".simpleCart_shelfItem").click(function () {
+                document.body.scrollTop = 0;
+            });
+        }
+        setTimeout(carouselSale, 500);
+    }
+    gotoDetail(product: Product): void {
+        let link = ['/single', product.id];
+        this.router.navigate(link);
+    }
 }

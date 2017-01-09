@@ -7,13 +7,19 @@ import 'rxjs/Rx';
 declare var $: any;
 
 @Component({
-	moduleId: module.id,
-	selector: 'mod_sale_products',
-	templateUrl: 'mod_sale_products.component.html'
+    moduleId: module.id,
+    selector: 'mod_sale_products',
+    templateUrl: 'mod_sale_products.component.html'
 })
 export class ModSaleProductsComponent implements OnInit {
-
-	list_product_display: Product[];
+    list_product_display: Product[];
+    constructor(private service_product: ProductService, private router: Router) { }
+    ngOnInit(): void {
+        this.service_product.getListProductApi().subscribe(
+            data => this.list_product_display = data.filter((item: any) => item.price_sale != 0).slice(0, 6), // put the data returned from the server in our variable
+            error => console.log("Lỗi xảy ra ở HTTP service"), // in case of failure show this message
+            () => console.log(this.list_product_display)//run this code in all cases
+        );
         function carouselSale() {
             $('.multiple-items').slick({
                 infinite: true,

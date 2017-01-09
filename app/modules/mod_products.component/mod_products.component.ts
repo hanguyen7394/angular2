@@ -15,7 +15,7 @@ declare var $: any;
 	templateUrl: 'mod_products.component.html'
 })
 export class ModProductsComponent implements OnInit {
-	list_product_display: Product[];
+	public list_product_display: Product[];
 	constructor(private service_product: ProductService, private router: Router,
 		private route: ActivatedRoute, private location: Location, private service_cart: CartService) { }
 
@@ -23,7 +23,7 @@ export class ModProductsComponent implements OnInit {
 		this.route.params
 			.switchMap((params: Params) => this.service_product.getListProductByCateApi(+params['id']))
 			.subscribe(
-				data => console.log(data),
+				data => this.list_product_display = data,
 				error => console.log("Lỗi xảy ra ở HTTP service")
 			);
 

@@ -17,6 +17,7 @@ export class ModRelatedProductsComponent implements OnInit {
 
 	constructor(private service_product: ProductService, private router: Router) {
 		this.data_shared = this.service_product.getData();
+		
 	}
 
 	ngOnInit() {

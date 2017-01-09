@@ -37,6 +37,7 @@ import { OrderDetailService } from './services/service_order_detail/service_orde
 import { CustomerService } from './services/service_customer/service_customer';
 import { CommentService } from './services/service_comment/service_comment';
 import { CateProductService } from './services/service_cate_product/service_cate_product';
+import { CartService } from './services/service_cart/service_cart';
 
 @NgModule({
   imports:      [ BrowserModule, routing, HttpModule, FormsModule ],
@@ -46,7 +47,7 @@ import { CateProductService } from './services/service_cate_product/service_cate
                   ModProductDetailComponent, ModReviewTabsComponent, ModRelatedProductsComponent, ContactComponent,
                   ModContactComponent, LoginComponent, ModLoginComponent, CreateComponent, ModCreateComponent ],
   providers: [ ProductService, UserService, PartnerService, OrderService, OrderDetailService,
-              CustomerService, CommentService, CateProductService ],
+              CustomerService, CommentService, CateProductService, CartService ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

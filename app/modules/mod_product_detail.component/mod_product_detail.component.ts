@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../model/product/product';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -7,11 +8,13 @@ import { ProductService } from '../../services/service_product/service_product';
 declare var $: any;
 
 @Component({
-    moduleId: module.id,
-    selector: 'mod_product_detail',
-    templateUrl: 'mod_product_detail.component.html'
+	moduleId: module.id,
+	selector: 'mod_product_detail',
+	templateUrl: 'mod_product_detail.component.html'
 })
+
 export class ModProductDetailComponent implements OnInit {
+
     constructor(
         private service_product: ProductService,
         private route: ActivatedRoute,

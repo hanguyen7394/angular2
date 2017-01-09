@@ -1,51 +1,43 @@
 <div class="menu">
-    <div class="container">
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-	        </button>
-                <div class="logo">
-                    <h1><a routerLink="/home"><span>E</span> -Shop</a></h1>
-                </div>
-            </div>
-            <!--/.navbar-header-->
+	<div class="container">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+				<div class="logo">
+					<h1><a routerLink="/home"><span>E</span> -Shop</a></h1>
+				</div>
+			</div>
+			<!--/.navbar-header-->
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a routerLink="/home">Home</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown">Men <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a routerLink="/products">Polos & Tees</a></li>
-                            <li><a routerLink="/products">Casual Shirts</a></li>
-                            <li><a routerLink="/products">Casual Trousers</a></li>
-                            <li><a routerLink="/products">Jeans</a></li>
-                            <li><a routerLink="/products">Shorts & 3/4th</a></li>
-                            <li><a routerLink="/products">Formal Shirts</a></li>
-                            <li><a routerLink="/products">Formal Trousers</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown">Women <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a routerLink="/products">Polos & Tees</a></li>
-                            <li><a routerLink="/products">Casual Shirts</a></li>
-                            <li><a routerLink="/products">Casual Trousers</a></li>
-                            <li><a routerLink="/products">Jeans</a></li>
-                            <li><a routerLink="/products">Shorts & 3/4th</a></li>
-                            <li><a routerLink="/products">Formal Shirts</a></li>
-                            <li><a routerLink="/products">Formal Trousers</a></li>
-                        </ul>
-                    </li>
-                    <li><a routerLink="/contact">CONTACT</a></li>
-                </ul>
-            </div>
-            <!--/.navbar-collapse-->
-        </nav>
-        <!--/.navbar-->
-    </div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a routerLink="/home">Home</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown">Men <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li *ngFor="let item of list_cate_product">
+								<a *ngIf="item.sex==0">{{item.name}}</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown">Women <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li *ngFor="let item of list_cate_product">
+								<a *ngIf="item.sex==1">{{item.name}}</a>
+							</li>
+						</ul>
+					</li>
+					<li><a routerLink="/contact">CONTACT</a></li>
+				</ul>
+			</div>
+			<!--/.navbar-collapse-->
+		</nav>
+		<!--/.navbar-->
+	</div>
 </div>

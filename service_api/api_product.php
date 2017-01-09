@@ -28,7 +28,18 @@
         $db->setQuery($lenh_sql);
         $data = $db->loadAllRow();
     }
-    
+    else if($input->product_id)
+    {
+        $lenh_sql = "SELECT *
+                    FROM product p 
+                    WHERE
+                    p.id != $input->product_id AND p.product_cate_id = (SELECT product_cate_id 
+                                                                        FROM product p
+                                                                        WHERE p.id = $input->product_id)";
+            
+        $db->setQuery($lenh_sql);
+        $data = $db->loadAllRow();
+    }
     else
     {
         $lenh_sql = "SELECT * FROM product";

@@ -22,7 +22,7 @@ export class ModProductDetailComponent implements OnInit {
     ) { }
 
     @Input() product: Product;
-
+    
     ngOnInit() {
         this.route.params.forEach((params: Params) => {
             let id = +params['id'];
@@ -32,6 +32,7 @@ export class ModProductDetailComponent implements OnInit {
                 () => console.log(this.product)//run this code in all cases
             );
         });
+        
         function flexslider() {
             $('.flexslider').flexslider({
                 animation: "slide",

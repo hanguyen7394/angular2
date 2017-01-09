@@ -3155,3 +3155,7 @@ a:hover {
 	color: #816263;
 	opacity: 1;
 }
+
+.dropdown-menu {
+	min-width: 100px;
+}

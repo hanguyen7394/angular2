@@ -9,7 +9,7 @@ import { User } from '../../model/user/user';
 })
 export class ModLoginComponent implements OnInit {
 
-	public model = new User(1,'', '', '', '', '','','',1,'','','',0);
+	public model = new User(1,'', '', '', '', '','','',1,0,0,0,0);
 
 	constructor() { }
 

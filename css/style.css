@@ -1742,7 +1742,7 @@ p.click a:hover{
 	width:68%;
 	float:right;
 }
-.contact-left input[type="text"]{
+.contact-left input{
 	width: 100%;
 	color: #000;
 	margin: 0 23px 23px 0;

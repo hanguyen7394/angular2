@@ -616,6 +616,7 @@ a.like_name {
 		font-size: 14px;
 		letter-spacing: 2px;
 		text-decoration: none;
+		text-transform: capitalize;
 }
 #flexiselDemo1, #flexiselDemo3 {
 	display: none;
@@ -3158,4 +3159,12 @@ a:hover {
 
 .dropdown-menu {
 	min-width: 100px;
+}
+
+.product-image {
+	height: 437px;
+}
+
+.list-image {
+	height: 329px;
 }

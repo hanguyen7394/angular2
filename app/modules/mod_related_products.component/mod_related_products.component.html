@@ -5,7 +5,7 @@
 			<h3 class="like text-center">Related Products</h3>
 		</header>
 		<div class="col-md-4 product simpleCart_shelfItem text-center" (click)="gotoDetail(item)" *ngFor="let item of list_product_display, let i = index">
-			<a><img src="{{item.img}}" alt="" /></a>
+			<a><img src="{{item.img}}" alt="" class="product-image"/></a>
 			<div class="mask">
 				<a>Quick View</a>
 			</div>

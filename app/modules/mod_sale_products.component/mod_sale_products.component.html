@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="multiple-items">
                     <div class="col-md-4" *ngFor="let item of list_product_display">
-                        <a (click)="gotoDetail(item)"><img src="{{item.img}}" class="img-responsive" alt="" /></a>
+                        <a (click)="gotoDetail(item)"><img src="{{item.img}}" class="img-responsive product-image" alt="" /></a>
                         <div class="product liked-product simpleCart_shelfItem">
                             <a class="like_name" (click)="gotoDetail(item)">{{item.name}}</a>
                             <p *ngIf="item.price_sale != 0">

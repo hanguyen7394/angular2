@@ -11,10 +11,9 @@
 
     if($input->product_cate_id)
     {
-        $lenh_sql = "SELECT p.*, c.name 
-        FROM product p, cate_product c 
-        WHERE p.product_cate_id = c.id
-        AND p.product_cate_id = $input->product_cate_id";
+        $lenh_sql = "SELECT *
+        FROM product p 
+        WHERE p.product_cate_id = $input->product_cate_id";
         
         $db->setQuery($lenh_sql);
         $data = $db->loadAllRow();

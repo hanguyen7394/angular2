@@ -19,17 +19,15 @@ export class ModProductsComponent implements OnInit {
 	constructor(private service_product: ProductService, private router: Router,
 		private route: ActivatedRoute, private location: Location, private service_cart: CartService) { }
 
-	ngOnInit(): void {
-		
-		this.route.params.forEach((params: Params) => {
-			let id = +params['id'];
-			this.service_product.getListProductByCateApi(id).subscribe(
-			data => this.list_product_display = data, // put the data returned from the server in our variable
-			error => console.log("Lỗi xảy ra ở HTTP service")
+	ngOnInit() {
+		this.route.params
+			.switchMap((params: Params) => this.service_product.getListProductByCateApi(+params['id']))
+			.subscribe(
+				data => console.log(data),
+				error => console.log("Lỗi xảy ra ở HTTP service")
 			);
-		});
 
-		 $(".simpleCart_shelfItem").click(function() {
+		$(".simpleCart_shelfItem").click(function() {
 			document.body.scrollTop = 0;
 		});
 	}

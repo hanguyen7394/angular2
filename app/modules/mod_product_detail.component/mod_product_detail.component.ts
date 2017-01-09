@@ -21,9 +21,11 @@ export class ModProductDetailComponent implements OnInit {
 		this.route.params
 			.switchMap((params: Params) => this.service_product.getProductByIdApi(+params['id']))
 			.subscribe(
-				data => this.product = data.shift(), // put the data returned from the server in our variable
-				error => console.log("Lỗi xảy ra ở HTTP service"), // in case of failure show this message
-				() => console.log(this.product)//run this code in all cases
+				data => {
+					this.product = data.shift()
+					this.service_product.setData(this.product);
+				}, // put the data returned from the server in our variable
+				error => console.log("Lỗi xảy ra ở HTTP service")
 			);
 	}
 }

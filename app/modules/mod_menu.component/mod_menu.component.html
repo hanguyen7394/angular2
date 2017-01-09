@@ -21,7 +21,7 @@
 						<a class="dropdown-toggle" data-toggle="dropdown">Men <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li *ngFor="let item of list_cate_product">
-								<a *ngIf="item.sex==0">{{item.name}}</a>
+								<a *ngIf="item.sex==0" (click)="gotoCateProduct(item)">{{item.name}}</a>
 							</li>
 						</ul>
 					</li>

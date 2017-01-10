@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class PartnerService {
-    url_api = "/banhangA2/service_api/api_partner.php";
+    url_api = "/angular2/service_api/api_partner.php";
 
     constructor(private http: Http) { }
 

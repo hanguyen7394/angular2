@@ -14,7 +14,7 @@ class database{
 		$this->sql = $sql;
 	}
 	
-	function execute($option = array())
+	function executew($option = array())
 	{
 		$this->cursor = $this->pdo->prepare($this->sql);
 		if($option)
@@ -28,17 +28,22 @@ class database{
 		return $this->cursor;
 	}
 	
+	function executeSQL() {
+		$this->cursor = $this->pdo->prepare($this->sql);
+		$this->pdo->execute($this->cursor);
+	}
+
 	function loadAllRow($option = array()){
 		if($option)
 		{
-			if(!$result = $this->execute($option))
+			if(!$result = $this->executew($option))
 			{
 				return false;
 			}
 		}
 		else
 		{
-			if(!$result = $this->execute())
+			if(!$result = $this->executew())
 			{
 				return false;
 			}
@@ -49,14 +54,14 @@ class database{
 	function loadRow($option = array()){
 		if($option)
 		{
-			if(!$result = $this->execute($option))
+			if(!$result = $this->executew($option))
 			{
 				return false;
 			}
 		}
 		else
 		{
-			if(!$result = $this->execute())
+			if(!$result = $this->executew())
 			{
 				return false;
 			}

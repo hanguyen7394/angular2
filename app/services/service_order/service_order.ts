@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class OrderService {
-    url_api = "/banhangA2/service_api/api_order.php";
+    url_api = "/angular2/service_api/api_order.php";
 
     constructor(private http: Http) { }
 

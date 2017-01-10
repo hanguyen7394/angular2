@@ -7,11 +7,17 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class UserService {
-    url_api = "/banhangA2/service_api/api_user.php";
+	url_api = "/angular2/service_api/api_user.php";
 
-    constructor(private http: Http) { }
+	constructor(private http: Http) {}
 
-    getListUserApi() {
-        return this.http.get(this.url_api).map(res => res.json());
-    }
+	getListUserApi() {
+		return this.http.get(this.url_api).map(res => res.json());
+	}
+
+	addUser(user: User) {
+		let body = JSON.stringify({"user_data": user});
+    let options = new RequestOptions({ method: "post" });
+		return this.http.post(this.url_api, body, options);
+	}
 }

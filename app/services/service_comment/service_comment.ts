@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class CommentService {
-    url_api = "/banhangA2/service_api/api_comment.php";
+    url_api = "/angular2/service_api/api_comment.php";
 
     constructor(private http: Http) { }
 

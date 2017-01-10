@@ -9,7 +9,7 @@ import 'rxjs/Rx';
 export class ProductService {
 	url_api = "/angular2/service_api/api_product.php";
 
-	constructor(private http: Http) { }
+	constructor(private http: Http) {}
 
 	getListProductApi() {
 		return this.http.get(this.url_api).map(res => res.json());

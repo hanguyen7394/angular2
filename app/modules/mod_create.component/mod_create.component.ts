@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs/Rx';
 
 import { User } from '../../model/user/user';
 
@@ -26,7 +27,6 @@ export class ModCreateComponent implements OnInit {
 
 	register(form: NgForm) {
 		var utc = +new Date(new Date().toJSON().slice(0,10).replace(/-/g,'/'));
-		console.log(form.value);
 		
 		this.model = new User (
 			this.list_user.length,
@@ -44,7 +44,23 @@ export class ModCreateComponent implements OnInit {
 			1
 		);
 
-		console.log(this.model);
+		this.service_user.addUser(this.model).subscribe(
+			data => {
+				console.log(data);
+				return true;
+			},
+			error => {
+				console.log("Error http service");
+				return Observable.throw(error);
+				
+			}
+		);
+	}
 
+	getListUser() {
+		this.service_user.getListUserApi().subscribe(
+			data => console.log(data),
+			error => console.log("Error http service.")
+		);
 	}
 }

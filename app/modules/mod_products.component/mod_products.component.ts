@@ -38,10 +38,17 @@ export class ModProductsComponent implements OnInit {
 		this.route.params.forEach(
 			(params: Params) => {
 				let cate = params['cate'];
-				this.service_product.getListProductByCateApi(cate)
-					.subscribe(
-					data => this.list_product_display = data),
-					error => console.log("Lỗi xảy ra ở HTTP service")
+				if (cate) {
+					this.service_product.getListProductByCateApi(cate)
+						.subscribe(
+						data => this.list_product_display = data),
+						error => console.log("Lỗi xảy ra ở HTTP service");
+				}
+				else {
+					this.service_product.getListProductApi()
+						.subscribe(data => this.list_product_display = data),
+						error => console.log("Lỗi xảy ra ở HTTP service");							
+				}
 			}
 		);
 		this.route.params.subscribe(
@@ -52,7 +59,6 @@ export class ModProductsComponent implements OnInit {
                     this.fromNr = (this.filter.currentPage - 1) * this.filter.perPage;
                     this.toNr = this.fromNr + this.filter.perPage - 1;
                 }
-                console.log(this.filter.currentPage);
             }
         );
 		$(".simpleCart_shelfItem").click(function () {
@@ -71,8 +77,6 @@ export class ModProductsComponent implements OnInit {
             //page2 -> 2,3
             this.fromNr = (this.filter.currentPage - 1) * this.filter.perPage;
             this.toNr = this.filter.perPage - 1;
-            console.log(this.fromNr);
-            console.log(this.toNr);
 
             //logic (continue)
             //sexybongs -> sexybongs'
@@ -88,8 +92,15 @@ export class ModProductsComponent implements OnInit {
 		this.route.params.forEach(
 			(params: Params) => { 
 				let cate = params['cate'];
-				let link = ['/products', { cate: cate, page: page } ];
-        		this.router.navigate(link);
+				if (cate) {
+					let link = ['/products', { cate: cate, page: page } ];
+        			this.router.navigate(link);
+				}
+				else {
+					let link = ['/products', { page: page } ];
+        			this.router.navigate(link);
+				}
+				
 			}
 		);
 		

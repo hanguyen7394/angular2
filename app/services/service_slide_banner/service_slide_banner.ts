@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class SlideBannerService {
-url_api = "/banhangA2/service_api/api_slide_banner.php";
+url_api = "/angular2/service_api/api_slide_banner.php";
 
     constructor(private http: Http) { }
 

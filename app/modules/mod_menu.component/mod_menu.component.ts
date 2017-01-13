@@ -20,10 +20,11 @@ export class ModMenuComponent implements OnInit {
 			.subscribe(
 				data => this.list_cate_product = data,
 				error => console.log("Error http service!!")
-			);
+		);
 	}
+
 	gotoListProducts(cate_product: CateProduct): void {
-        let link = ['/products', cate_product.id];
-        this.router.navigate(link);
-    }
+		let link = ['/products', { cate: cate_product.id, page: 1 } ];
+		this.router.navigate(link);
+	}
 }

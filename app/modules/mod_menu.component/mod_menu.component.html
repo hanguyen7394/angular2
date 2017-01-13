@@ -20,16 +20,16 @@
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown">Men <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li (click)="gotoListProducts(item)" *ngFor="let item of list_cate_product">
-								<a *ngIf="item.sex==0">{{item.name}}</a>
+							<li *ngFor="let item of list_cate_product">
+								<a (click)="gotoListProducts(item)" *ngIf="item.sex==0">{{item.name}}</a>
 							</li>
 						</ul>
 					</li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown">Women <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li (click)="gotoListProducts(item)" *ngFor="let item of list_cate_product">
-								<a *ngIf="item.sex==1">{{item.name}}</a>
+							<li *ngFor="let item of list_cate_product">
+								<a (click)="gotoListProducts(item)" *ngIf="item.sex==1">{{item.name}}</a>
 							</li>
 						</ul>
 					</li>

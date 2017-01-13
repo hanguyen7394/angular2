@@ -25,7 +25,7 @@ export class ModCreateComponent implements OnInit {
 		)
 	}
 
-	register(form: NgForm) {
+	/*register(form: NgForm) {
 		var utc = +new Date(new Date().toJSON().slice(0,10).replace(/-/g,'/'));
 		
 		this.model = new User (
@@ -55,7 +55,7 @@ export class ModCreateComponent implements OnInit {
 				
 			}
 		);
-	}
+	}*/
 
 	getListUser() {
 		this.service_user.getListUserApi().subscribe(

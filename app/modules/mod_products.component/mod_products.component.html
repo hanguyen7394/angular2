@@ -29,6 +29,6 @@
 			</div>
 		</div>
 	</template>
-	<a (click)="gotoPage(1)">1</a>
-	<a (click)="gotoPage(2)">2</a>
+	<a [routerLink]="['/products',{ cate: cate_id, page: 1}]">1</a>
+	<a [routerLink]="['/products',{ cate: cate_id, page: 2}]">2</a>
 </div>

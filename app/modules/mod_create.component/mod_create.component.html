@@ -1,70 +1,87 @@
+<!-- registration-form -->
 <div class="registration-form">
-    <div class="container">
-        <div class="dreamcrub">
-            <ul class="breadcrumbs">
-                <li class="home">
-                    <a href="index.html" title="Go to Home Page">Home</a>&nbsp;
-                    <span>&gt;</span>
-                </li>
-                <li class="women">
-                    Registration
-                </li>
-            </ul>
-            <ul class="previous">
-                <li><a href="index.html">Back to Previous Page</a></li>
-            </ul>
-            <div class="clearfix"></div>
-        </div>
-        <h2>Registration</h2>
-        <div class="registration-grids">
-            <div class="reg-form">
-                <div class="reg">
-                    <p>Welcome, please enter the following details to continue.</p>
-                    <p>If you have previously registered with us, <a href="#">click here</a></p>
-                    <form>
-                        <ul>
-                            <li class="text-info">First Name: </li>
-                            <li><input type="text" value=""></li>
-                        </ul>
-                        <ul>
-                            <li class="text-info">Last Name: </li>
-                            <li><input type="text" value=""></li>
-                        </ul>
-                        <ul>
-                            <li class="text-info">Email: </li>
-                            <li><input type="text" value=""></li>
-                        </ul>
-                        <ul>
-                            <li class="text-info">Password: </li>
-                            <li><input type="password" value=""></li>
-                        </ul>
-                        <ul>
-                            <li class="text-info">Re-enter Password:</li>
-                            <li><input type="password" value=""></li>
-                        </ul>
-                        <ul>
-                            <li class="text-info">Mobile Number:</li>
-                            <li><input type="text" value=""></li>
-                        </ul>
-                        <input type="submit" value="REGISTER NOW">
-                        <p class="click">By clicking this button, you are agree to my <a href="#">Policy Terms and Conditions.</a></p>
-                    </form>
-                </div>
-            </div>
-            <div class="reg-right">
-                <h3>Completely Free Account</h3>
-                <div class="strip"></div>
-                <p>Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt
-                    tempus aliquam, odio libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed
-                    condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis
-                    ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
-                <h3 class="lorem">Lorem ipsum dolor.</h3>
-                <div class="strip"></div>
-                <p>Tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor
-                    lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit
-                    vestibulum est, at faucibus erat ligula non neque.</p>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
+	<div class="container">
+	<div class="dreamcrub">
+		<ul class="breadcrumbs">
+			<li class="home">
+				<a href="index.html" title="Go to Home Page">Home</a>&nbsp;
+				<span>&gt;</span>
+			</li>
+			<li class="women">
+				Registration
+			</li>
+		</ul>
+		<ul class="previous">
+			<li><a href="index.html">Back to Previous Page</a></li>
+		</ul>
+		<div class="clearfix"></div>
+			</div>
+		<h2>Registration</h2>
+		<div class="registration-grids">
+			<div class="reg-form">
+				<div class="reg">
+					<p>Welcome, please enter the following details to continue.</p>
+					<p>If you have previously registered with us, <a href="#">click here</a></p>
+					<form #signIn="ngForm" (ngSubmit)="register(signIn)">
+						<ul>
+							<li class="text-info">First Name: </li>
+							<li><input type="text" #first_name="ngModel" [(ngModel)]="model.first_name" name="first_name" id="first_name" required></li>
+							<div [hidden]="first_name.valid || first_name.pristine" class="alert alert-danger col-sm-12">
+								Vui lòng nhập tên!
+							</div>
+						</ul>
+						<ul>
+							<li class="text-info">Last Name: </li>
+							<li><input type="text" #last_name="ngModel" [(ngModel)]="model.last_name" name="last_name" id="last_name" required></li>
+							<div [hidden]="last_name.valid || last_name.pristine" class="alert alert-danger col-sm-12">
+								Vui lòng nhập họ!
+							</div>
+						</ul>				 
+						<ul>
+							<li class="text-info">Email: </li>
+							<li><input type="text" #email="ngModel" [(ngModel)]="model.email" name="email" id="email" (focus)="blur_email = false" 
+								(blur)="blur_email = true"  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required></li>
+							<div [hidden]="!blur_email || email.valid || email.pristine" class="alert alert-danger col-sm-12">
+								<div *ngIf="email.errors && email.errors.required">
+									Vui lòng nhập email
+								</div>
+								<div *ngIf="email.errors && email.errors.pattern">
+									Email không hợp lệ
+								</div>
+							</div>
+						</ul>
+						<ul>
+							<li class="text-info">Username: </li>
+							<li><input type="text" #username="ngModel" [(ngModel)]="model.username" name="username" id="username" required></li>
+						 	<div [hidden]="username.valid || username.pristine" class="alert alert-danger col-sm-12">
+								Vui lòng nhập username!
+							</div>
+						</ul>
+						<ul>
+							<li class="text-info">Password: </li>
+							<li><input type="password" #password="ngModel" [(ngModel)]="model.password" name="password" id="password" required></li>
+						 	<div [hidden]="password.valid || password.pristine" class="alert alert-danger col-sm-12">
+								Vui lòng nhập mật khẩu!
+							</div>
+						</ul>
+						 						
+						<input type="submit" value="REGISTER NOW">
+						<p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p> 
+					</form>
+				</div>
+			</div>
+			<div class="reg-right">
+				<h3>Completely Free Account</h3>
+				<div class="strip"></div>
+				<p>Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio 
+				libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
+				<h3 class="lorem">Lorem ipsum dolor.</h3>
+				<div class="strip"></div>
+				<p>Tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
+			</div>
+			<div class="clearfix"></div>
+			<button (click)="getListUser()">Get user</button>
+		</div>
+	</div>
 </div>
+<!-- registration-form -->

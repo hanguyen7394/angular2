@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { User } from '../../model/user/user';
 
@@ -11,7 +12,11 @@ export class ModLoginComponent implements OnInit {
 
 	public model = new User(1,'', '', '', '', '','','',1,0,0,0,0);
 
-	constructor() { }
+	constructor(private route: Router) { }
 
 	ngOnInit() { }
+
+  goCreateUser() {
+    this.route.navigate(['/create']);
+  }
 }

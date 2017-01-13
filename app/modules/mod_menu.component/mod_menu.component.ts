@@ -25,5 +25,6 @@ export class ModMenuComponent implements OnInit {
 	gotoListProducts(cate_product: CateProduct): void {
         let link = ['/products', { cate: cate_product.id, page: 1 } ];
         this.router.navigate(link);
+		console.log("gotoListProducts");
     }
 }

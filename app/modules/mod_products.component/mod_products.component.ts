@@ -42,23 +42,28 @@ export class ModProductsComponent implements OnInit {
 					this.service_product.getListProductByCateApi(cate)
 						.subscribe(
 						data => this.list_product_display = data),
-						error => console.log("Lỗi xảy ra ở HTTP service");
+						(error: any) => console.log("Lỗi xảy ra ở HTTP service");
 				}
 				else {
 					this.service_product.getListProductApi()
 						.subscribe(data => this.list_product_display = data),
-						error => console.log("Lỗi xảy ra ở HTTP service");							
+						(error: any) => console.log("Lỗi xảy ra ở HTTP service");							
 				}
 			}
 		);
-		this.route.params.subscribe(
-            (param: any) => {
-                let pageNr = param['page'];
+		this.route.params.forEach(
+            (params: Params) => {
+                let pageNr = params['page'];
                 if (pageNr) {
                     this.filter.currentPage = pageNr;
                     this.fromNr = (this.filter.currentPage - 1) * this.filter.perPage;
                     this.toNr = this.fromNr + this.filter.perPage - 1;
                 }
+				else {
+					this.filter.currentPage = 1;
+                    this.fromNr = (this.filter.currentPage - 1) * this.filter.perPage;
+                    this.toNr = this.fromNr + this.filter.perPage - 1;
+				}
             }
         );
 		$(".simpleCart_shelfItem").click(function () {
@@ -67,7 +72,6 @@ export class ModProductsComponent implements OnInit {
 	}
 
 	ngAfterViewInit(): void {
-
         //logic page
         if (this.list_product_display) {
             let totalProduct: number = this.list_product_display.length;
@@ -76,10 +80,8 @@ export class ModProductsComponent implements OnInit {
             //page1 -> 0,1
             //page2 -> 2,3
             this.fromNr = (this.filter.currentPage - 1) * this.filter.perPage;
-            this.toNr = this.filter.perPage - 1;
+            this.toNr = this.fromNr + this.filter.perPage - 1;
 
-            //logic (continue)
-            //sexybongs -> sexybongs'
         }
     }
 
@@ -103,7 +105,7 @@ export class ModProductsComponent implements OnInit {
 				
 			}
 		);
-		
+		console.log("gotoPage");
 	}
 	
 	addItem(item: any) {

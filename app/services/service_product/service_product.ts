@@ -29,9 +29,9 @@ export class ProductService {
 		return this.http.post(this.url_api, body, option).map(res => res.json());
 	}
 	
-	getRelatedProductByIdApi(id: number)
+	getRelatedProductByIdApi(product_id: number)
 	{
-		let body = JSON.stringify({ "product_id": id });
+		let body = JSON.stringify({ "product_id": product_id });
 		let option = new RequestOptions({ method: "post" });
 		return this.http.post(this.url_api, body, option).map(res => res.json());
 	}

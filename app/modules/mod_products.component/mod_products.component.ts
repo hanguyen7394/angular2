@@ -32,7 +32,7 @@ export class ModProductsComponent implements OnInit {
     toNr: number = 5;
 
 	constructor(private service_product: ProductService, private router: Router,
-		private route: ActivatedRoute, private location: Location, private service_cart: CartService) {	}
+		private route: ActivatedRoute, private location: Location, private service_cart: CartService) { }
 
 	ngOnInit() {
 		this.route.params.forEach(
@@ -44,16 +44,19 @@ export class ModProductsComponent implements OnInit {
 						data => this.list_product_display
 							= data,
 						(error: any) => console.log("Lỗi xảy ra ở HTTP service"));
-					if (this.list_product_display) {
-						console.log(this.list_product_display.length);
-						let totalProduct: number = this.list_product_display.length;
-						this.totalPage = Math.ceil(totalProduct / this.filter.perPage);
-					}
+
+					setTimeout(() => {
+						if (this.list_product_display) {
+							console.log(this.list_product_display.length);
+							let totalProduct: number = this.list_product_display.length;
+							this.totalPage = Math.ceil(totalProduct / this.filter.perPage);
+						}
+					}, 100);
 				}
 
 			}
 		);
-		
+
 		this.route.params.forEach(
             (params: Params) => {
                 let pageNr = parseInt(params['page']);

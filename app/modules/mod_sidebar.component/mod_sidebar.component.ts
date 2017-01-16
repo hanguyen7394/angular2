@@ -2,18 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import 'rxjs/Rx';
 import { Router } from '@angular/router';
 
+import { CateProductService } from '../../services/service_cate_product/service_cate_product';
+import { CateProduct } from '../../model/cate_product/cate_product';
+
 @Component({
     moduleId: module.id,
     selector: 'mod_sidebar',
     templateUrl: 'mod_sidebar.component.html'
 })
 export class ModSidebarComponent implements OnInit {
-    constructor(private router: Router) { }
+    public list_cate_product: Array<CateProduct>;
+    constructor(private service_cate_product: CateProductService, private router: Router) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.service_cate_product.getListCateProductApi()
+			.subscribe(
+				data => this.list_cate_product = data,
+				error => console.log("Error http service!!")
+			);
+    }
     
-    gotoListProducts(): void {
-        let link = ['/products', { page: 1 } ];
+    gotoListProducts(id: number): void {
+        let link = ['/products', { cate: id, page: 1 } ];
         this.router.navigate(link);
     }
 }

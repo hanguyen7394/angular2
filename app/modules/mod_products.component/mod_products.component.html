@@ -29,6 +29,31 @@
 			</div>
 		</div>
 	</template>
-	<a [routerLink]="['/products',{ cate: cate_id, page: 1}]">1</a>
-	<a [routerLink]="['/products',{ cate: cate_id, page: 2}]">2</a>
+
+	<div class="col-md-12">
+		<div class="product-pagination text-center">
+			<nav>
+				<ul class="pagination">
+					<li *ngIf="filter.currentPage != 1"><a (click)="clickPrev()">&laquo;</a></li>
+						<li [ngClass]="{'active': filter.currentPage == 1}">
+							<a [routerLink]="['/products',{ cate: cate, page: 1}]">1</a>
+						</li>
+						<li *ngIf="totalPage > 1" [ngClass]="{'active': filter.currentPage == 2}">
+							<a [routerLink]="['/products',{ cate: cate, page: 2}]">2</a>
+						</li>
+						<li *ngIf="totalPage > 2" [ngClass]="{'active': filter.currentPage == 3}">
+							<a [routerLink]="['/products',{ cate: cate, page: 3}]">3</a>
+						</li>
+						<li *ngIf="totalPage > 3"[ngClass]="{'active': filter.currentPage == 4}">
+							<a [routerLink]="['/products',{ cate: cate, page: 4}]">4</a>
+						</li>
+						<li *ngIf="totalPage > 4" [ngClass]="{'active': filter.currentPage == 5}">
+							<a [routerLink]="['/products',{ cate: cate, page: 5}]">5</a>
+						</li>
+					
+					<li *ngIf="filter.currentPage < totalPage"><a (click)="clickNext()">&raquo;</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
 </div>

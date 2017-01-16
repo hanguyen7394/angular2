@@ -2,14 +2,9 @@
     <div class="product-listy">
         <h2>our Products</h2>
         <ul class="product-list">
-            <li><a (click)="gotoListProducts()">New Products</a></li>
-            <li><a (click)="gotoListProducts()">Old Products</a></li>
-            <li><a (click)="gotoListProducts()">T-shirts</a></li>
-            <li><a (click)="gotoListProducts()">pants</a></li>
-            <li><a (click)="gotoListProducts()">Dress</a></li>
-            <li><a (click)="gotoListProducts()">Shorts</a></li>
-            <li><a (click)="gotoListProducts()">Shirts</a></li>
-            <li><a routerLink="/create">Register</a></li>
+            <li *ngFor="let item of list_cate_product">
+                <a (click)="gotoListProducts(item.id)">{{item.name}}</a>
+            </li>
         </ul>
     </div>
     <div class="latest-bis">

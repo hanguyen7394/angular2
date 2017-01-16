@@ -12,7 +12,6 @@ declare var $: any;
 export interface Filter {
     currentPage: number;
     perPage: number;
-    totalPage: number;
 }
 
 @Component({
@@ -21,93 +20,82 @@ export interface Filter {
 	templateUrl: 'mod_products.component.html'
 })
 export class ModProductsComponent implements OnInit {
-	public list_product_display: Product[];
+	list_product_display: Product[];
+	cate: number;
+	totalPage: number;
 
 	filter: Filter = {
         currentPage: 1,
         perPage: 6,
-        totalPage: 2
     };
 	fromNr: number = 0;
     toNr: number = 5;
 
 	constructor(private service_product: ProductService, private router: Router,
-		private route: ActivatedRoute, private location: Location, private service_cart: CartService) { }
+		private route: ActivatedRoute, private location: Location, private service_cart: CartService) {	}
 
 	ngOnInit() {
 		this.route.params.forEach(
 			(params: Params) => {
-				let cate = params['cate'];
-				if (cate) {
-					this.service_product.getListProductByCateApi(cate)
+				this.cate = parseInt(params['cate']);
+				if (this.cate) {
+					this.service_product.getListProductByCateApi(this.cate)
 						.subscribe(
-						data => this.list_product_display = data),
-						(error: any) => console.log("Lỗi xảy ra ở HTTP service");
+						data => this.list_product_display
+							= data,
+						(error: any) => console.log("Lỗi xảy ra ở HTTP service"));
+					if (this.list_product_display) {
+						console.log(this.list_product_display.length);
+						let totalProduct: number = this.list_product_display.length;
+						this.totalPage = Math.ceil(totalProduct / this.filter.perPage);
+					}
 				}
-				else {
-					this.service_product.getListProductApi()
-						.subscribe(data => this.list_product_display = data),
-						(error: any) => console.log("Lỗi xảy ra ở HTTP service");							
-				}
+
 			}
 		);
+		
 		this.route.params.forEach(
             (params: Params) => {
-                let pageNr = params['page'];
+                let pageNr = parseInt(params['page']);
+
                 if (pageNr) {
                     this.filter.currentPage = pageNr;
-                    this.fromNr = (this.filter.currentPage - 1) * this.filter.perPage;
-                    this.toNr = this.fromNr + this.filter.perPage - 1;
                 }
 				else {
 					this.filter.currentPage = 1;
-                    this.fromNr = (this.filter.currentPage - 1) * this.filter.perPage;
-                    this.toNr = this.fromNr + this.filter.perPage - 1;
 				}
+
+				this.fromNr = (this.filter.currentPage - 1) * this.filter.perPage;
+				this.toNr = this.fromNr + this.filter.perPage - 1;
             }
         );
+
 		$(".simpleCart_shelfItem").click(function () {
 			document.body.scrollTop = 0;
 		});
 	}
 
-	ngAfterViewInit(): void {
-        //logic page
-        if (this.list_product_display) {
-            let totalProduct: number = this.list_product_display.length;
-            this.filter.totalPage = Math.ceil(totalProduct / this.filter.perPage);
-
-            //page1 -> 0,1
-            //page2 -> 2,3
-            this.fromNr = (this.filter.currentPage - 1) * this.filter.perPage;
-            this.toNr = this.fromNr + this.filter.perPage - 1;
-
-        }
-    }
-
 	gotoDetail(product: Product): void {
 		let link = ['/single', product.id];
 		this.router.navigate(link);
 	}
-	
-	gotoPage(page: number) {
-		this.route.params.forEach(
-			(param: Params) => { 
-				let cate = param['cate'];
-				if (cate) {
-					let link = ['/products', { cate: cate, page: page } ];
-        			this.router.navigate(link);
-				}
-				else {
-					let link = ['/products', { page: page } ];
-        			this.router.navigate(link);
-				}
-				console.log(param);
-				
-			}
-		);
+
+	clickPrev() {
+		this.filter.currentPage -= 1;
+		if (this.cate) {
+			let link = ['/products', { cate: this.cate, page: this.filter.currentPage }];
+			this.router.navigate(link);
+		}
 	}
-	
+
+	clickNext() {
+		this.filter.currentPage += 1;
+		if (this.cate) {
+			let link = ['/products', { cate: this.cate, page: this.filter.currentPage }];
+			this.router.navigate(link);
+		}
+	}
+
 	addItem(item: any) {
 		this.service_cart.addItem(item);
 	}

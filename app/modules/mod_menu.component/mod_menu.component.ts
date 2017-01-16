@@ -22,8 +22,4 @@ export class ModMenuComponent implements OnInit {
 				error => console.log("Error http service!!")
 			);
 	}
-	gotoListProducts(id: number): void {
-        let link = ['/products', { cate: id, page: 1 } ];
-        this.router.navigate(link);
-    }
 }

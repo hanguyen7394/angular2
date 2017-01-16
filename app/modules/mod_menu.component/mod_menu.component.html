@@ -16,24 +16,24 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a routerLink="/home">Home</a></li>
-					<li class="dropdown">
+					<li routerLink="/home" routerLinkActive="active"><a>Home</a></li>
+					<li class="dropdown" routerLinkActive="active">
 						<a class="dropdown-toggle" data-toggle="dropdown">Men <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li *ngFor="let item of list_cate_product">
-								<a (click) = "gotoListProducts(item.id)" *ngIf="item.sex==0">{{item.name}}</a>
+								<a [routerLink]="['/products',{ cate: item.id, page: 1}]" *ngIf="item.sex==0">{{item.name}}</a>
 							</li>
 						</ul>
 					</li>
-					<li class="dropdown">
+					<li class="dropdown" routerLinkActive="active">
 						<a class="dropdown-toggle" data-toggle="dropdown">Women <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li *ngFor="let item of list_cate_product">
-								<a (click) = "gotoListProducts(item.id)" *ngIf="item.sex==1">{{item.name}}</a>
+								<a [routerLink]="['/products',{ cate: item.id, page: 1}]" *ngIf="item.sex==1">{{item.name}}</a>
 							</li>
 						</ul>
 					</li>
-					<li><a routerLink="/contact">CONTACT</a></li>
+					<li routerLink="/contact" routerLinkActive="active"><a>CONTACT</a></li>
 				</ul>
 			</div>
 			<!--/.navbar-collapse-->

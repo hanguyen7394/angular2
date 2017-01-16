@@ -3165,3 +3165,12 @@ a:hover {
 .list-image {
 	height: 329px;
 }
+
+.pagination > li > a, .pagination > li > span {
+	color: #816263;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+	background: #816263;
+	border-color: #616263;
+}

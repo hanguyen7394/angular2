@@ -47,7 +47,6 @@ export class ModProductsComponent implements OnInit {
 
 					setTimeout(() => {
 						if (this.list_product_display) {
-							console.log(this.list_product_display.length);
 							let totalProduct: number = this.list_product_display.length;
 							this.totalPage = Math.ceil(totalProduct / this.filter.perPage);
 						}

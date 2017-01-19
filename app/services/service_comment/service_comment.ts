@@ -11,7 +11,10 @@ export class CommentService {
 
     constructor(private http: Http) { }
 
-    getListCommentApi() {
-        return this.http.get(this.url_api).map(res => res.json());
-    }
+    getListCommentApi(product_id_comment: number)
+	{
+		let body = JSON.stringify({ "product_id_comment": product_id_comment });
+		let option = new RequestOptions({ method: "post" });
+		return this.http.post(this.url_api, body, option).map(res => res.json());
+	}
 }

@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../../model/product/product';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
@@ -21,7 +21,7 @@ export class ModProductDetailComponent implements OnInit {
         private location: Location
     ) { }
 
-    @Input() product: Product;
+    product: Product;
     
     ngOnInit() {
         this.route.params.forEach((params: Params) => {

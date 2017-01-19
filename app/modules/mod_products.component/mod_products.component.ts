@@ -37,7 +37,7 @@ export class ModProductsComponent implements OnInit {
 	ngOnInit() {
 		this.route.params.forEach(
 			(params: Params) => {
-				this.cate = parseInt(params['cate']);
+				this.cate = +params['cate'];
 				if (this.cate) {
 					this.service_product.getListProductByCateApi(this.cate)
 						.subscribe(
@@ -58,7 +58,7 @@ export class ModProductsComponent implements OnInit {
 
 		this.route.params.forEach(
             (params: Params) => {
-                let pageNr = parseInt(params['page']);
+                let pageNr = +params['page'];
 
                 if (pageNr) {
                     this.filter.currentPage = pageNr;
